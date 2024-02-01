@@ -3,7 +3,7 @@
 include '../partials/header.php';
 include '../config/cURL.php';
 
-    ?>
+?>
 
 <div class="wrapper">
     <h1>Page de produits</h1>

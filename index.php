@@ -2,7 +2,7 @@
 
 <div class="wrapper">
     <h1>Bienvenue sur mon app PHP</h1>
-    <img src="./assets/images/cocktail.png" alt="Cocktail">
+    <img src="./assets/images/eshop.png" alt="Cocktail">
 
 </div>
 

@@ -13,6 +13,6 @@
             <li><a href="../index.php">Accueil</a></li>
             <li><a href="./views/products.view.php">Produits</a></li>
             <li><a href="contact.view.php">Contact</a></li>
-            <li><a href="signup.view.php">Signup</a></li>
+            <li><a href="./views/signup.view.php">Signup</a></li>
         </ul>
     </nav>
