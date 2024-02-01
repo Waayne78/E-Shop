@@ -21,7 +21,6 @@ body {
     color: red;
 }
 
-
 /* NAVBAR */
 nav {
     position: absolute;
@@ -106,10 +105,17 @@ nav a {
     gap: 0.5rem;  
 }
 
+nav img {
+    width: 3rem;
+    height: 2.5rem;
+    margin-left: 1rem;
+    vertical-align: middle;
+}
+
 button {
     background-color: #52bdc5;
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 1rem 3rem;
     border: none;
     border-radius:8px;
     cursor: pointer;
@@ -171,3 +177,4 @@ input[type="submit"]{
     text-align: center;
     color: green;
 }
+

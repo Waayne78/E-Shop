@@ -1,8 +1,10 @@
 <?php
 
+ob_start();
+
 include '../partials/header.php';
 include '../config/pdo.php';
-
+include '../utils/function.php';
 
 // On vérifie que le form ait été soumis 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -22,19 +24,35 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
                 // Création du hash
                 $hash = password_hash($password, PASSWORD_DEFAULT);
 
-                // On écrit notre requete préparée 
-                $sql = "INSERT INTO eshop_signup (name, email, password) VALUES(?, ?, ?)";
-                $stmt = $pdo->prepare($sql);
-                $result = $stmt->execute([$name, $email, $hash]);
-
-                // Si notre execute s'est bien déroulé on redirige vers une page de succès
-                if ($result) {
-                    header('Location: signup_sucess.view.php');
-                    // Sinon on affiche l'erreur en question
+                // Appel de la fonction checkExists() pour vérifier si l'email existe déjà en BDD
+                $emailExists = checkExists('email', $email, $pdo);
+                // Si l'email existe déjà en BDD on affiche une erreur
+                if ($emailExists) {
+                    $error = "Cet email existe déjà !";
+                    // Sinon on continue
                 } else {
-                    $error = "Erreur lors de l'ajout : " . $stmt->errorInfo();
-                }
+                    // Appel de la fonction checkExists() pour vérifier si le pseudo existe déjà en BDD
+                    $nameExists = checkExists('name', $name, $pdo);
+                    // Si le pseudo existe déjà en BDD on affiche une erreur
+                    if ($nameExists) {
+                        $error = "Ce pseudo existe déjà !";
+                        // Sinon on continue
+                    } else {
+                        // On écrit notre requete préparée 
+                        $sql = "INSERT INTO eshop_signup (name, email, password) VALUES(?, ?, ?)";
+                        $stmt = $pdo->prepare($sql);
+                        $result = $stmt->execute([$name, $email, $hash]);
 
+                        // Si notre execute s'est bien déroulé on redirige vers une page de succès
+                        if ($result) {
+                            header('Location: signup_sucess.view.php');
+                            ob_end_flush();
+                            // Sinon on affiche l'erreur en question
+                        } else {
+                            $error = "Erreur lors de l'ajout : " . $stmt->errorInfo();
+                        }
+                    }
+                }
             } else {
                 $error = "L'email n'est pas au bon format";
             }
