@@ -50,10 +50,11 @@ nav a {
     margin-right: 2rem;
 
 }
+
 /* INDEX  */
 
 .wrapper {
-    padding-top: 5rem;
+    padding: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,6 +70,7 @@ nav a {
     width: 15rem;
     height: 15rem;
 }
+
 
 .product-list {
     display: grid;
@@ -156,15 +158,31 @@ form{
  
 form input{
     width: 15rem;
-    height: 1.5rem;
+    height: 2rem;
     margin-top: 0.5rem;
-    border-radius: 3%;
+    border-radius: 10px;
 }
+
+buuton a 
+{
+    text-decoration: none;
+    color: white;
+}
+textarea {
+    width: 100%;
+    height: 10rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 1rem;
+    margin-top: 1rem;
+    resize: none;
+}
+
  
 input[type="submit"]{
     width: 15rem;
     height:2rem;
-    background-color: green;
+    background-color: rgb(53, 153, 254);
 }
  
 .title{
@@ -178,3 +196,12 @@ input[type="submit"]{
     color: green;
 }
 
+.detail {
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    margin: 0 1rem;
+    position: relative;
+    margin-left: 55px;
+    margin-top: 20px;
+}

@@ -23,8 +23,7 @@ if (isset($_GET['product'])) {
             </div>
         </div>
         <div class="buy-button">
-        <input type="number" id="number-product" name="number" min="1" max="10" />
-        <button>Ajouter au panier</button>
+        <button><a href="cart.view.php?product=<?= $product['id'] ?>">Ajouter au panier</a></button>
         </div>
         
     <?php endif ?>

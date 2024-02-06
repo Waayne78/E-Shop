@@ -22,7 +22,7 @@ include '../config/cURL.php';
                 <h2>
                     <?= $product['price'] ?> €
                 </h2>
-                <button>Ajouter au panier</button>
+                <button><a href="cart.view.php?product=<?= $product['id'] ?>">Ajouter au panier</a></button>
             </li>
         <?php endforeach ?>
 
